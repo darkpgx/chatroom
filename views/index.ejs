@@ -13,10 +13,11 @@
     $(document).ready(function() {
       var user = prompt("Please enter your name");
       var msg;
+      $('input').focus();
       $('input').keyup(function(e) {
         console.log(e);
         console.log(e.keyCode);
-         if(e.keyCode == 13) {
+         if(e.keyCode == 13 & $(this).val() !== "") {
            msg = $('input').val();
           $('body').append("<div class='chatline'>" + user + ": " + msg +"</div>");
           $(this).val("");
