@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <input type="text" name="in1">input1:</input>
+  <button type="button">Send</button>
+  <div id='display'></div>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+    $(document).ready(function() {
+      var msg;
+      $('button').click(function() {
+        msg = $('input').val();
+        $('div').append(msg);
+      });
+    });
+  </script>
+</body>
+</html>
