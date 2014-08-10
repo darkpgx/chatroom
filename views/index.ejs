@@ -5,16 +5,18 @@
   <title></title>
 </head>
 <body>
-  <input type="text" name="in1">input1:</input>
+  <input type="text" name="in1" value placeholder ="enter message"></input>
   <button type="button">Send</button>
   <div id='display'></div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
     $(document).ready(function() {
+      var user = prompt("Please enter your name");
       var msg;
       $('button').click(function() {
         msg = $('input').val();
-        $('div').append(msg);
+        $('div').append('<br/>');
+        $('div').append(user + ": " + msg);
       });
     });
   </script>
