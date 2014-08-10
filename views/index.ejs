@@ -18,8 +18,9 @@
         console.log(e.keyCode);
          if(e.keyCode == 13) {
            msg = $('input').val();
-          $('div').append('<br/>');
-          $('div').append(user + ": " + msg);
+          $('body').append('<br/>');
+          $('body').append("<div class='chatline'>" + user + ": " + msg +"</div>");
+          $(this).val("");
           };
       });
     });
