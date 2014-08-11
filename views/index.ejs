@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <style>
+    #container{
+      height: 350px;
+      overflow: auto;
+    }
+
+    #display{
+      
+    }
+  </style>
 </head>
 <body>
-  <input type="text" name="in1" value placeholder ="enter message"></input>
-  <button type="button">Send</button>
-  <div id='display'></div>
+  <div id='fixedcontainer' style='position: fixed'>
+    <input type="text" name="in1" value placeholder ="enter message"></input>
+    <button type="button">Send</button>
+  </div>
+  <div id='container'><div id='display'></div></div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
     $(document).ready(function() {
@@ -23,8 +35,9 @@
               $('#display').append('<div>' + chat[i].username + ': ' + chat[i].chat + '</div>');
             };
           };
+          $('#container').animate({scrollTop: 10000 }, 100);
         });
-      }, 500);
+      }, 1000);
       $('input').keyup(function(e) {
         console.log(e);
         console.log(e.keyCode);
