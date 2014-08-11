@@ -4,49 +4,24 @@
   <meta charset="UTF-8">
   <title></title>
   <style>
-    #container{
-      height: 350px;
-      overflow: auto;
-    }
-
-    #display{
-      
+    .rmnameinput {
+      width: 150px;
+      height: 50px;
     }
   </style>
 </head>
 <body>
-  <div id='fixedcontainer' style='position: fixed'>
-    <input type="text" name="in1" value placeholder ="enter message"></input>
-    <button type="button">Send</button>
+  <div>
+    <input class ='rmnameinput' type="TEXT" value placeholder ="Enter Room Name"></input>
+    <button>JOIN</button>
   </div>
-  <div id='container'><div id='display'></div></div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
-    $(document).ready(function() {
-      var user = prompt("Please enter your name");
-      var msg;
-      $('input').focus();
-      setInterval(function(){
-        $.get('/getchat', function(res) {
-          var chat = res;
-          if(chat.length > 0){
-            $('#display').empty();
-            for(var i = 0; i < chat.length; i++) {
-              $('#display').append('<div>' + chat[i].username + ': ' + chat[i].chat + '</div>');
-            };
-          };
-          $('#container').animate({scrollTop: 10000 }, 100);
-        });
-      }, 1000);
-      $('input').keyup(function(e) {
-        console.log(e);
-        console.log(e.keyCode);
-         if(e.keyCode == 13 & $(this).val() !== "") {
-           msg = $('input').val();
-           $.get('/chat?chat=' + msg + '&username=' + user)
-          $(this).val("");
-          };
-      });
+    $('button').click(function(){
+      var rmname = $('input').val();
+      if(rmname !==""){
+      window.location='/r/'+rmname;
+      };
     });
   </script>
 </body>
